@@ -107,7 +107,6 @@ const newUser = {
 
 const newData = [...users, newUser]
 
-
 // Delete
 // id === 2
 // const newData2 = []
@@ -137,7 +136,7 @@ const newData2 = users.filter(u => u.id !== 2) // фильтр возвраща�
 
 // пуш поп шифт аншифт  reverse splice изменяют текущий массив
 
-// slice filter reduce toReversed toSorted toSpliced не меняют текущий массив
+// slice filter reduce toReversed toSorted toSpliced map не меняют текущий массив
 
 
 // update
@@ -146,7 +145,7 @@ const newData2 = users.filter(u => u.id !== 2) // фильтр возвраща�
 // map - создаёт новый массив
 const newData3 = users.map(u => u.id === 4 ? {...u, isStudent: false} : u)
 
-console.log(users)
-console.log(newData3)
-console.log(users[0] === newData3[0]) // true
-console.log(users[3] === newData3[3]) // false
+// console.log(users)
+// console.log(newData3)
+// console.log(users[0] === newData3[0]) // true
+// console.log(users[3] === newData3[3]) // false

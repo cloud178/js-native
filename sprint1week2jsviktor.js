@@ -56,16 +56,16 @@ const array = [3,4,5,6,7,8,9]
 
 
 
-// function itShift(array) {
-//     if (!array.length) return undefined
-//
-//     const firstElement = array[0]
-//     for (let i = 0; i < array.length; i++) {
-//         array[i] = array[i+1]
-//     }
-//     array.length = array.length - 1
-//     return firstElement
-// }
+function itShift(array) {
+    if (!array.length) return undefined
+
+    const firstElement = array[0]
+    for (let i = 0; i < array.length; i++) {
+        array[i] = array[i+1]
+    }
+    array.length = array.length - 1
+    return firstElement
+}
 //
 // console.log(itShift(array))
 // console.log(array)
