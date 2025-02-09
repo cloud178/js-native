@@ -207,9 +207,96 @@
 // console.log(memoizedFn(6))
 
 
-
-const executor = () => {
-
+// resolve | reject - спец ф-ция, которая переводит состояние нашего промиса в состояние resolve или reject
+const executor = (resolve, reject) => {
+    // setTimeout(() => {
+    //     resolve({
+    //         id: 1,
+    //         name: 'Denis'
+    //     })
+    // }, 1000)
+    resolve(true)
 }
 
-const promise = new Promise()
+// const promise = new Promise(executor)
+// console.log(promise)
+
+// const promise2 = promise.then( users => {
+//     // console.log(users)
+//     return fetch(`http://${users[0].id}`)
+// } )
+//
+// const promise3 = promise2.then( user => {
+//     //fetch user posts
+//     return result
+// })
+
+
+// promise
+//     .then(users => {
+//         // console.log(users)
+//         // return fetch(`http://${users[0].id}`)
+//         return 5
+//     })
+//     .then(user => {
+//         //fetch user posts
+//         return 4
+//     })
+//     .then(user => {
+//         return 3
+//     })
+
+
+const promise = new Promise(executor)
+    .then(users => {
+        console.log(users)
+        // return fetch(`http://${users[0].id}`)
+        // return new Promise((res, rej) => {
+            // setTimeout(()=>{res(22)}, 5000)
+        //     rej('error1')
+        // })
+    })
+    .then(user => {
+        console.log(user)
+        console.log(111)
+        //fetch user posts
+        return 4
+    })
+    .then(user => {
+        console.log(12)
+        return 3
+    })
+    .catch(err => {
+        console.log(err)
+    })
+    .then(() => {
+        return new Promise((res, rej) => {
+            // setTimeout(()=>{res(22)}, 5000)
+            rej('error2')
+        })
+    })
+    .catch(() => {})
+
+
+console.log(666)
+
+
+
+
+
+
+
+const promise1 = new Promise((res, rej) => {
+    setTimeout(() => {
+        // res("reject1");
+        rej("reject1");
+    }, 1000);
+});
+
+
+promise1
+    .catch((t) => t + "catch1")
+    .catch((t) => t + "catch2")
+    .then((t) => t + "then1")
+    .finally((t) => t + "finally")
+    .then((t) => console.log(t)); /// ??
